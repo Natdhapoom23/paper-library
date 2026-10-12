@@ -1,0 +1,1 @@
+{"name":"paper-library-online","version":"1.0.0","private":true,"type":"module","scripts":{"build":"node build.mjs"},"dependencies":{"@supabase/supabase-js":"^2.0.0","esbuild":"^0.25.0","mammoth":"^1.11.0","pdfjs-dist":"^4.10.38","page-flip":"^2.0.7"}}
