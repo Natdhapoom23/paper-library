@@ -12,3 +12,4 @@ GitHub Pages frontend + Supabase Auth / PostgreSQL / private Storage.
 - To deploy: upload dist files to repository root and enable Pages from main / root.
 - Run schema.sql once on the dedicated Supabase project. Enable anonymous sign-ins only if guest mode is wanted. Enable email sign-ins and add the Pages URL to Auth redirect URLs.
 - Local SQLite books are not automatically sent online. Re-import selected files in the online version.
+- Reader upgrade: fullscreen button with a full-area fallback for unsupported browsers; text sizes 16/18/20/24px. Text pages reflow without changing stored originals; page counts vary by screen/font size. PDF and image content retain their original typography.
