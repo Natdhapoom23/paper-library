@@ -13,3 +13,4 @@ GitHub Pages frontend + Supabase Auth / PostgreSQL / private Storage.
 - Run schema.sql once on the dedicated Supabase project. Enable anonymous sign-ins only if guest mode is wanted. Enable email sign-ins and add the Pages URL to Auth redirect URLs.
 - Local SQLite books are not automatically sent online. Re-import selected files in the online version.
 - Reader upgrade: fullscreen button with a full-area fallback for unsupported browsers; text sizes 16/18/20/24px. Text pages reflow without changing stored originals; page counts vary by screen/font size. PDF and image content retain their original typography.
+- Dragging starts immediately with pointer capture; page motion follows pointer position. Release uses velocity and drag progress, and can return a partly turned page. PDF-dominant books keep the original PDF page aspect ratio. The document viewer supports 100-400% zoom and scroll/pinch reading.
