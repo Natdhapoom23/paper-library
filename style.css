@@ -34,3 +34,7 @@ body:not(.reading){height:100dvh;overflow:hidden}body>header{height:70px;padding
 .library-filters{position:static;flex:none;padding:0;margin:0;background:transparent;box-shadow:none;overflow:visible;z-index:100}.library-filters[hidden]{display:none}@media(max-width:760px){.library-filters{position:absolute;top:110px;left:3%;right:3%;padding:14px;background:#f7f3e9;box-shadow:0 6px 30px #0003;max-height:65dvh;overflow:auto}}
 
 .compact-row .cover{overflow:hidden}.compact-row .cover>small:first-child,.compact-row .cover .ornament,.managing .compact-row .cover .ornament{display:none}.compact-row .cover h3{flex:1;min-height:40px;margin:5px 0;line-height:1.4}.compact-row .cover>small:last-of-type{flex:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;height:15px}
+
+.compact-row .book-tile .tile{width:var(--cover-width);height:var(--cover-height);flex:none}.compact-row .cover{width:100%;height:100%;max-height:none;aspect-ratio:auto}.book-menu-button{right:calc((100% - var(--cover-width))/2)}
+
+.compact-row .cover h3,.managing .compact-row .cover h3{font-size:var(--cover-font);min-height:0}
