@@ -73,3 +73,13 @@ body:not(.reading){height:100dvh;overflow:hidden}body>header{height:70px;padding
 .back-cover .page-inner{justify-content:center;gap:12px}.back-cover h2{font-size:clamp(28px,5vw,48px);letter-spacing:2px}.back-cover.photo-cover h2,.back-cover .photo-cover h2{padding:14px}.back-cover .page-inner>small:last-child{font-size:14px}
 
 .page-text .book-paragraph{text-indent:2em}.page-text .book-heading,.page-text .book-list,.page-text .book-continuation{text-indent:0}.page-text>div:last-child{margin-bottom:0!important}
+
+/* Unified liquid-glass controls and aligned form rows. */
+:root{--control-radius:16px;--control-height:46px}
+button,input:not([type=hidden]):not([type=file]),select,textarea{border-radius:var(--control-radius)}
+button,input:not([type=hidden]):not([type=file]),select{min-height:var(--control-height)}
+.header-actions{align-items:center;gap:8px}.header-actions button,.header-actions #ai-open,.header-actions #ai-settings-open{height:46px;min-height:46px;font-size:14px;padding:10px 14px;border-radius:var(--control-radius);white-space:nowrap}
+.studio-fields{align-items:start}.studio-fields>label{display:flex;flex-direction:column;gap:8px;margin:10px 0;line-height:1.5}.studio-fields>label>input,.studio-fields>label>select{width:100%;height:48px;min-height:48px;margin:0;padding:10px 12px;border-radius:var(--control-radius)}
+.reader-controls{align-items:center}.reader-controls button,.reader-controls select,.font-controls button{min-height:44px;border-radius:var(--control-radius)}.font-controls{align-items:center}
+.dialog-head{align-items:center;gap:12px}.dialog-head button{width:44px;min-height:44px;padding:8px;flex:none;border-radius:var(--control-radius)}
+@media(max-width:600px){:root{--control-height:44px}.header-actions{gap:4px}.header-actions button,.header-actions #ai-open,.header-actions #ai-settings-open,.header-actions #add{height:40px;min-height:40px;font-size:10px;padding:6px 8px;border-radius:var(--control-radius)}.studio-fields{grid-template-columns:1fr}.reader-controls button,.reader-controls select{min-height:44px}}
