@@ -65,3 +65,7 @@ body:not(.reading){height:100dvh;overflow:hidden}body>header{height:70px;padding
 
 /* Shared paper margins used by rendered pages and pagination meter. */
 .page:not(.coverpage)>.page-inner{padding:var(--page-vertical,28px) var(--page-gutter,32px);min-width:0}.page.illustration-page>.page-inner{padding:var(--page-vertical,28px) var(--page-gutter,32px)}.illustration-page footer{position:static;flex:none;margin-top:12px;background:transparent}.page-text,.image-caption{width:100%;min-width:0}.illustration-page img{max-width:100%}
+
+/* Page number sits halfway inside the reserved bottom margin. */
+.page:not(.coverpage)>.page-inner{position:relative}
+.page:not(.coverpage)>.page-inner>footer{position:absolute;bottom:calc(var(--page-vertical,28px) / 2);left:var(--page-gutter,32px);right:var(--page-gutter,32px);margin:0;transform:translateY(50%);background:transparent;pointer-events:none;line-height:1.4}
