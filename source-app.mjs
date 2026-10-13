@@ -313,3 +313,13 @@ for(const node of mainNodes.filter(n=>n.tagName==='BUTTON'))node.addEventListene
 mobileMedia.addEventListener('change',arrangeMobileControls);arrangeMobileControls();
 
 $('#filter-toggle').addEventListener('click',()=>document.body.classList.toggle('mobile-search-open',$('#filter-toggle').getAttribute('aria-expanded')==='true'));
+
+// Search has its own panel so filters cannot overlap or hide the text field.
+const searchPanel=mobilePanel('mobile-search-panel','ค้นหาหนังสือและกรอง','ค้นหา / กรอง',$('.shelf-head'));
+searchPanel.button.remove();searchPanel.button=$('#filter-toggle');
+const searchNodes=[$('#search'),$('.library-filters')];
+const searchSlots=searchNodes.map(node=>{const slot=document.createComment('search-original-slot');node.before(slot);return slot});
+function arrangeSearch(){searchNodes.forEach((node,i)=>{if(mobileMedia.matches)searchPanel.content.append(node);else searchSlots[i].after(node)});if(mobileMedia.matches)$('.library-filters').hidden=false;else{searchPanel.dialog.close();$('.library-filters').hidden=true}$('#filter-toggle').setAttribute('aria-expanded','false')}
+$('#filter-toggle').onclick=()=>{if(mobileMedia.matches){$('.library-filters').hidden=false;searchPanel.dialog.showModal();$('#filter-toggle').setAttribute('aria-expanded','true');$('#search').focus()}else{const panel=$('.library-filters');panel.hidden=!panel.hidden;$('#filter-toggle').setAttribute('aria-expanded',String(!panel.hidden));renderShelf()}};
+searchPanel.dialog.addEventListener('close',()=>$('#filter-toggle').setAttribute('aria-expanded','false'));
+mobileMedia.addEventListener('change',arrangeSearch);arrangeSearch();
