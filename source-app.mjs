@@ -301,7 +301,7 @@ $('#offline-download-all').onclick=async()=>{const button=$('#offline-download-a
 function offlineFingerprint(book){return JSON.stringify({title:book.title,pages:book.pages.map(p=>{const {libraryMeta,...body}=p;let content=body.content;if(p.type!=='text'){try{content=new URL(content).pathname.replace(/^\/storage\/v1\/object\/(?:sign|public)\/paper-library\//,'')}catch{}}return {...body,content}}),cover:bookMeta(book).coverImage||'',color:bookMeta(book).coverColor||''})}
 
 // Mobile panels keep existing controls and their event handlers intact.
-const mobileMedia=matchMedia('(max-width:600px)');
+const mobileMedia=matchMedia('(max-width:600px), (max-width:1100px) and (max-height:600px)');
 function mobilePanel(id,title,buttonLabel,parent){const dialog=document.createElement('dialog');dialog.id=id;dialog.className='mobile-panel';dialog.innerHTML='<div class="dialog-head"><h2>'+title+'</h2><button type="button" aria-label="ปิด">✕</button></div><div class="mobile-panel-content"></div>';document.body.append(dialog);const button=document.createElement('button');button.type='button';button.className='mobile-panel-open';button.textContent=buttonLabel;parent.append(button);button.onclick=()=>dialog.showModal();dialog.querySelector('button').onclick=()=>dialog.close();dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});return{dialog,button,content:dialog.lastElementChild}}
 const mobileMain=mobilePanel('mobile-main-menu','เมนู BOOKS','☰ เมนู',$('.header-actions'));
 const mobileReading=mobilePanel('mobile-reading-settings','ตั้งค่าการอ่าน','⚙ ตั้งค่า',$('.reader-controls'));
